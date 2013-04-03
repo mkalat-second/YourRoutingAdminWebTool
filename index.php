@@ -6,7 +6,7 @@ echo "<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
-        <title>YRAT - Landing Page</title>
+        <title>YRAWT - Landing Page</title>
     </head>
     <body>
         <center>

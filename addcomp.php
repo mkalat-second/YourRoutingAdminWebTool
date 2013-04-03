@@ -11,6 +11,7 @@ if (isset($_POST['imie']) && isset($_POST['nazwisko']) && isset($_POST['lokaliza
     $lok = $_POST['lokalizacja'];
     $IP = $_POST['IP'];
     $MAC = $_POST['MAC'];
+    $IN_SYS = true;
     require "core.php";
     register($imie,$nazwisko,$lok,$IP,$MAC);
     
@@ -36,6 +37,7 @@ echo "<!DOCTYPE html>
         exec('arp '.$ip, $answer);
         $hostinfo = explode(" ", $answer[1]);
         $x=0;
+        $mac = 0;
         while(count($hostinfo[$x]) and !isset($mac)){
             if(eregi('([0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2})',$hostinfo[$x])){
                         $mac=$hostinfo[$x];
