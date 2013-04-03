@@ -1,6 +1,7 @@
 <?php
 # Your Routing Admin Web Tool - web administration software for linux boxes
 # Copyright 2013 by Marcin Kalat http://mkalat.pl
+# Portions of code (obtaining mac of client computer) is taken from http://piotr.kwiatek.org/2008/11/02/php-pobieranie-adresu-mac/
 # This file is licensed under terms of GNU GPL v. 2 license. See http://www.gnu.org/licenses/gpl-2.0.html for details.
 
 if (isset($_POST['imie']) && isset($_POST['nazwisko']) && isset($_POST['lokalizacja']) && isset($_POST['IP']) && isset($_POST['MAC']))
