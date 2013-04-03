@@ -5,46 +5,53 @@
 
 if (!isset($IN_SYS)) die("Access Denied");
 require "config.php";
+//find the root-dir
+
+
+//set locale variables
+
+$locale_path = $root_dir."/locale/";
+$locale_lang = $locale."/";
 
 
 
 
 function register($imie,$nazwisko,$lok,$IP,$MAC)
 {
-    
-    
-    
-    
+
+
+
+
 }
 function Authenticate($login, $passwd)
 {
-    
-    
-    
+
+
+
 }
 function StripHTMLPHP($value)
 {
-    
-    
-    
+
+
+
     return $stripped;
 }
 function ValidateShellInput($value)
 {
-    
-    
+
+
     return $validated;
 }
 function SendMail($from,$rcpt,$topic,$cc)
 {
-    
-    
+
+
     return $exitcode;
 }
 function GetLocalSystemCreds($login, $passwd, $algo)
 {
-    
-    
+
+
     return $exitcode;
 }
 

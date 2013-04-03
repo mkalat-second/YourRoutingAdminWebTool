@@ -3,7 +3,9 @@
 # Copyright 2013 by Marcin Kalat http://mkalat.pl
 # Portions of code (obtaining mac of client computer) is taken from http://piotr.kwiatek.org/2008/11/02/php-pobieranie-adresu-mac/
 # This file is licensed under terms of GNU GPL v. 2 license. See http://www.gnu.org/licenses/gpl-2.0.html for details.
-
+$IN_SYS = true;
+require "core.php";
+require $locale_path.$locale_lang."addcomp.php";
 if (isset($_POST['imie']) && isset($_POST['nazwisko']) && isset($_POST['lokalizacja']) && isset($_POST['IP']) && isset($_POST['MAC']))
 {
     $imie = $_POST['imie'];
@@ -12,18 +14,18 @@ if (isset($_POST['imie']) && isset($_POST['nazwisko']) && isset($_POST['lokaliza
     $IP = $_POST['IP'];
     $MAC = $_POST['MAC'];
     $IN_SYS = true;
-    require "core.php";
+
 	 $ret = register($imie,$nazwisko,$lok,$IP,$MAC);
     if ($ret == 0)
 	 {
 	 	echo "<!DOCTYPE html>
     <html>
     <head>
-        <title>YRAWT - Add My computer to network</title>
+        <title>".$title_char."</title>
         <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
     </head>
     <body>
-	 <center></center><p>Twoje dane zostały dodane do listy oczekujacych na przyjęcie do autoryzowanej sieci i po sprawdzeniu przez Administratora Twój komputer zostanie dodany do autoryzowanych.</p></center>
+	 <center></center><p>".$comm_newly_added."</p></center>
 	 </body>
 
 	 </html>
@@ -35,11 +37,11 @@ if (isset($_POST['imie']) && isset($_POST['nazwisko']) && isset($_POST['lokaliza
 	 	echo "<!DOCTYPE html>
     <html>
     <head>
-        <title>YRAWT - Add My computer to network</title>
+        <title>".$title_char."</title>
         <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
     </head>
     <body>
-	 <center><p>Twój komputer jest zablokowany.</p></center>
+	 <center><p>".$comm_banned."</p></center>
 	 </body>
 
 	 </html>
@@ -51,11 +53,11 @@ if (isset($_POST['imie']) && isset($_POST['nazwisko']) && isset($_POST['lokaliza
 	 	echo "<!DOCTYPE html>
     <html>
     <head>
-        <title>YRAWT - Add My computer to network</title>
+        <title>".$tile_char."</title>
         <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
     </head>
     <body>
-	 <center><p>Twój komputer został już zgłoszony. Poczekaj na decyzje Administratora.</p></center>
+	 <center><p>".$comm_already_added."</p></center>
 	 </body>
 
 	 </html>
@@ -68,15 +70,15 @@ else
 echo "<!DOCTYPE html>
     <html>
     <head>
-        <title>YRAWT - Add My computer to network</title>
+        <title>".$title_char."</title>
         <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
     </head>
     <body>
         <form action='addcomp.php' method='POST'>
         <table>
-        <tr><td>First Name</td><td><input type='text' name='imie'></td></tr>
-        <tr><td>Last Name</td><td><input type='text' name='nazwisko'></td></tr>
-        <tr><td>Adress</td><td><input type='text' name='lokalizacja'></td></tr>
+        <tr><td>".$label_FirstName."</td><td><input type='text' name='imie'></td></tr>
+        <tr><td>".$label_Surame."</td><td><input type='text' name='nazwisko'></td></tr>
+        <tr><td>".$label_Adress."</td><td><input type='text' name='lokalizacja'></td></tr>
         <tr><td><input type='hidden' name='IP' value='".$_SERVER['REMOTE_ADDR']."'></td></tr>";
         $ip = $_SERVER['REMOTE_ADDR'];
         exec('ping '.$ip.' -c 1');
@@ -92,7 +94,7 @@ echo "<!DOCTYPE html>
             $x++;
         }
         echo "<tr><td><input type='hidden' name='MAC' value='".$mac."'></td></tr>
-            <tr><td><input type='submit' value='Register to network'></td></tr>
+            <tr><td><input type='submit' value='".$label_SubmitBtn."'></td></tr>
 
         </table>
         </form>
