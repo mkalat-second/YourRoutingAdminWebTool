@@ -2,6 +2,7 @@
 # Your Routing Admin Web Tool - web administration software for linux boxes
 # Copyright 2013 by Marcin Kalat http://mkalat.pl
 # This file is licensed under terms of GNU GPL v. 2 license. See http://www.gnu.org/licenses/gpl-2.0.html for details.
+require "config.php"
 echo "<!DOCTYPE html>
 <html>
     <head>
@@ -11,11 +12,14 @@ echo "<!DOCTYPE html>
     <body>
         <center>
             <table>
-                <tr><td>Select option :</td></tr>
-                <tr><td><a href=\"addcomp.php\">Add my computer to network</a></td></tr>
-                <tr><td><a href=\"login.php\">Login as Administrator</a></td></tr>
-            </table>    
-            
+                <tr><td>Select option :</td></tr>";
+					 if ($enable_register=="yes")
+					 {
+                	echo "<tr><td><a href=\"addcomp.php\">Add my computer to network</a></td></tr>";
+					 }
+					 echo "<tr><td><a href=\"login.php\">Login as Administrator</a></td></tr>
+            </table>
+
         </center>
    </body>
 </html>";

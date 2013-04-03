@@ -13,17 +13,64 @@ if (isset($_POST['imie']) && isset($_POST['nazwisko']) && isset($_POST['lokaliza
     $MAC = $_POST['MAC'];
     $IN_SYS = true;
     require "core.php";
-    register($imie,$nazwisko,$lok,$IP,$MAC);
-    
+	 $ret = register($imie,$nazwisko,$lok,$IP,$MAC);
+    if ($ret == 0)
+	 {
+	 	echo "<!DOCTYPE html>
+    <html>
+    <head>
+        <title>YRAWT - Add My computer to network</title>
+        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
+    </head>
+    <body>
+	 <center></center><p>Twoje dane zostały dodane do listy oczekujacych na przyjęcie do autoryzowanej sieci i po sprawdzeniu przez Administratora Twój komputer zostanie dodany do autoryzowanych.</p></center>
+	 </body>
+
+	 </html>
+	 ";
+
+	 }
+	 else if ($ret == -1)
+	 {
+	 	echo "<!DOCTYPE html>
+    <html>
+    <head>
+        <title>YRAWT - Add My computer to network</title>
+        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
+    </head>
+    <body>
+	 <center><p>Twój komputer jest zablokowany.</p></center>
+	 </body>
+
+	 </html>
+	 ";
+
+	 }
+	 else if ($ret == -2)
+	 {
+	 	echo "<!DOCTYPE html>
+    <html>
+    <head>
+        <title>YRAWT - Add My computer to network</title>
+        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
+    </head>
+    <body>
+	 <center><p>Twój komputer został już zgłoszony. Poczekaj na decyzje Administratora.</p></center>
+	 </body>
+
+	 </html>
+	 ";
+
+	 }
 }
 else
 {
 echo "<!DOCTYPE html>
     <html>
     <head>
-        <title>YRAT - Add My computer to network</title>
+        <title>YRAWT - Add My computer to network</title>
         <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">
-    </head>    
+    </head>
     <body>
         <form action='addcomp.php' method='POST'>
         <table>
@@ -46,11 +93,11 @@ echo "<!DOCTYPE html>
         }
         echo "<tr><td><input type='hidden' name='MAC' value='".$mac."'></td></tr>
             <tr><td><input type='submit' value='Register to network'></td></tr>
-        
+
         </table>
         </form>
     </body>
-    
+
 </html>";
 }
 

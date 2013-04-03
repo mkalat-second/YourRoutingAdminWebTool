@@ -9,5 +9,7 @@ $loc_sys_conf_samba="";
 $loc_sys_shell="/bin/bash";
 $loc_sys_distro="Debian/Ubuntu";
 $loc_sys_ver="6";
+$enable_register="yes";
+$locale="PL";
 
 ?>
