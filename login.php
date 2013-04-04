@@ -32,7 +32,6 @@ else if (!isset($COOKIE['YRAWTlogin']) && isset($_POST['login']) && isset($_POST
 	{
 		redirect($root_dir."/index.php");
 	}
-
 }
 else if (isset($IS_ADMIN) && isset($COOKIE['YRAWTlogin']))
 {
@@ -42,6 +41,4 @@ else
 {
 	die("Access Denied");
 }
-
-
 ?>

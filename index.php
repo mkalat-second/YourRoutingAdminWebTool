@@ -14,11 +14,11 @@ echo "<!DOCTYPE html>
         <center>
             <table>
                 <tr><td>".$label_selLog."</td></tr>";
-					 if ($enable_register=="yes")
-					 {
-                	echo "<tr><td><a href=\"addcomp.php\">".$label_opt1."</a></td></tr>";
-					 }
-					 echo "<tr><td><a href=\"login.php\">".$label_opt2."</a></td></tr>
+		if ($enable_register=="yes")
+		{
+                    echo "<tr><td><a href=\"addcomp.php\">".$label_opt1."</a></td></tr>";
+		}
+		echo "<tr><td><a href=\"login.php\">".$label_opt2."</a></td></tr>
             </table>
 
         </center>
