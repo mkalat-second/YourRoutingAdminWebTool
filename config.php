@@ -11,5 +11,4 @@ $loc_sys_distro="Debian/Ubuntu";
 $loc_sys_ver="6";
 $enable_register="yes";
 $locale="pl-PL-utf8";
-$loc_sys_shadow_algo="md5";
 ?>

@@ -3,7 +3,6 @@
 # Copyright 2013 by Marcin Kalat http://mkalat.pl
 # Portions of code (obtaining mac of client computer) is taken from http://piotr.kwiatek.org/2008/11/02/php-pobieranie-adresu-mac/
 # This file is licensed under terms of GNU GPL v. 2 license. See http://www.gnu.org/licenses/gpl-2.0.html for details.
-$IN_SYS = true;
 require "core.php";
 require $locale_path.$locale_lang."addcomp.php";
 if (isset($_POST['imie']) && isset($_POST['nazwisko']) && isset($_POST['lokalizacja']) && isset($_POST['IP']) && isset($_POST['MAC']))

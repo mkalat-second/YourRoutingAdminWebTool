@@ -1,7 +1,6 @@
 <?php
-$IN_SYS = true;
 require "core.php";
-if (isset($IS_ADMIN))
+if (isset($IS_ADMIN) && $IS_ADMIN == true)
 {
 
 
