@@ -31,7 +31,7 @@ if (isset($_COOKIE['YRAWTlogin']) && isset($_COOKIE['YRAWTpass']))
 }
 else
 {
-	unset($IS_ADMIN);
+	UnAuthenticate();
 }
 function register($imie,$nazwisko,$lok,$IP,$MAC)
 {
