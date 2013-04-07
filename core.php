@@ -49,8 +49,8 @@ function Authenticate($login, $passwd)
 		{
 			// ATTENTION - this code stores constant key encrypted password to local system account for simplicity reasons, because I use PAM to check is user valid in local system, I can't safely compare inside YRAWT hashed passwords like in modern CMS-es developers do, besides YRAWT doesn't use database, where it could store safely admins password hashes and logins, also for simplicity reasons.
 			// I'm plannig support for database - MySql. As of PAM it is one of the safest and most handy method to check credentials of local system administrator. PAM doesn't provide API function to get unencrypted password from shadow, which is ok., and secure, but complicates my script a bit ;)
-			setcookie('YRAWTlogin',$login,60*10,'/');
-			setcookie('YRAWTpass', mcrypt_encrypt(MCRYPT_CRYPT,"YRAWT",$passwd,MCRYPT_MODE_CFB),60*10,'/');
+			setcookie('YRAWTlogin',$login,time() + 60*10,'/');
+			setcookie('YRAWTpass', mcrypt_encrypt(MCRYPT_CRYPT,"YRAWT",$passwd,MCRYPT_MODE_CFB),time() + 60*10,'/');
                         return 0;
 		}
 		else if ($ret == -2)
