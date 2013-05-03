@@ -25,7 +25,7 @@ if (!isset($_COOKIE['YRAWTlogin']) && !isset($_POST['login']) && !isset($_POST['
 	 </html>
 	";
 }
-else if (!isset($COOKIE['YRAWTlogin']) && isset($_POST['login']) && isset($_POST['pass']))
+else if (!isset($_COOKIE['YRAWTlogin']) && isset($_POST['login']) && isset($_POST['pass']))
 {
 	if (Authenticate($_POST['login'],$_POST['pass']) == 0)
 	{
@@ -36,7 +36,7 @@ else if (!isset($COOKIE['YRAWTlogin']) && isset($_POST['login']) && isset($_POST
 		redirect($root_dir."/index.php");
 	}
 }
-else if (isset($IS_ADMIN) && isset($COOKIE['YRAWTlogin']))
+else if (isset($IS_ADMIN) && isset($_COOKIE['YRAWTlogin']))
 {
 	redirect($root_dir."/admin/index.php");
 }

@@ -42,6 +42,7 @@ function register($imie,$nazwisko,$lok,$IP,$MAC)
 }
 function Authenticate($login, $passwd)
 {
+	require "config.php";
 	if ($logon_source == "LocalSYS")
 	{
 		$ret = GetLocalSystemCreds($login,$passwd);
